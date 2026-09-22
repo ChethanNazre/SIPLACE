@@ -13,6 +13,6 @@ namespace SiplaceApp.Models
         public string BoardSide { get; set; }
         public DateTime ImportedDate { get; set; }
 
-        public ICollection<SetupDetail> SetupDetails { get; set; } = new List<SetupDetail>();
+        public ICollection<SetupDetail> SetupDetails { get; set; }
     }
 }
