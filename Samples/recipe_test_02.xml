@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Recipe Name="Test_Product_C" Version="1.0">
+
+	<BoardsRightLane>
+		<Board Name="Test_Model_C" />
+	</BoardsRightLane>
+
+	<Setup>
+		<Line Name="Test_Line_02">
+
+			<Station Name="SIPLACE_X4i_S1">
+
+				<HeadStep Type="PLACE">
+					<Position ReferenceDesignator="R301"
+                              Component="PN-500001" />
+					<Pickup Table="Table6"
+                            FeederType="8mm X"
+                            Track="2" />
+				</HeadStep>
+
+				<HeadStep Type="PLACE">
+					<Position ReferenceDesignator="R302"
+                              Component="PN-500001" />
+					<Pickup Table="Table6"
+                            FeederType="8mm X"
+                            Track="2" />
+				</HeadStep>
+
+				<HeadStep Type="PLACE">
+					<Position ReferenceDesignator="R303"
+                              Component="PN-500001" />
+					<Pickup Table="Table6"
+                            FeederType="8mm X"
+                            Track="2" />
+				</HeadStep>
+
+				<HeadStep Type="PLACE">
+					<Position ReferenceDesignator="C301"
+                              Component="PN-600001" />
+					<Pickup Table="Table6"
+                            FeederType="16mm X"
+                            Track="12" />
+				</HeadStep>
+
+				<HeadStep Type="PLACE">
+					<Position ReferenceDesignator="C302"
+                              Component="PN-600001" />
+					<Pickup Table="Table6"
+                            FeederType="16mm X"
+                            Track="12" />
+				</HeadStep>
+
+			</Station>
+
+		</Line>
+	</Setup>
+
+</Recipe>
