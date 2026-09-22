@@ -53,7 +53,7 @@
             lblTitle.Size = new Size(711, 54);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "SIPLACE SETUP REPORT GENERATOR";
-            lblTitle.Click += label1_Click;
+
             // 
             // lblSubtitle
             // 
@@ -175,7 +175,7 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SIPLACE Setup Report Generator";
-            Load += MainForm_Load;
+          
             grpImport.ResumeLayout(false);
             grpImport.PerformLayout();
             grpRecipes.ResumeLayout(false);

@@ -16,6 +16,10 @@ namespace SiplaceApp.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<SetupDetail>()
+                .HasKey(sd => sd.DetailId);
+
+
+            modelBuilder.Entity<SetupDetail>()
                 .HasOne(sd => sd.Recipe)
                 .WithMany(r => r.SetupDetails)
                 .HasForeignKey(sd => sd.RecipeId)
