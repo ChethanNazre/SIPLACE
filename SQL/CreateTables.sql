@@ -29,7 +29,7 @@ CREATE TABLE [dbo].[SetupDetails]
 
 	CONSTRAINT [FK_SetupDetails_Recipes]
 	FOREIGN KEY ([RecipeId])
-	REFERENCES [dbo].[RecipesId]([RecipeId])
+	REFERENCES [dbo].[Recipes]([RecipeId])
 	ON DELETE CASCADE
 );
 GO
