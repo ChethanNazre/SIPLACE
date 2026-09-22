@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SiplaceApp.Models
+﻿namespace SiplaceApp.Models
 {
     public class Recipe
     {
@@ -13,6 +9,6 @@ namespace SiplaceApp.Models
         public string BoardSide { get; set; }
         public DateTime ImportedDate { get; set; }
 
-        public ICollection<SetupDetail> SetupDetails { get; set; }
+        public ICollection<SetupDetail> SetupDetails { get; set; } = new List<SetupDetail>();
     }
 }
