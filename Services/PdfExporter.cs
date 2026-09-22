@@ -37,21 +37,21 @@ namespace SiplaceApp.Services
                             column.Spacing(10);
 
                             column.Item()
-                                .Text($"Recipe Name: {recipe.RecipeName}");
+                                .Text($"Recipe Name: {recipe.RecipeName}").FontSize(14).Bold();
 
                             column.Item()
-                                .Text($"Line Name: {recipe.LineName}");
+                                .Text($"Line Name: {recipe.LineName}").FontSize(14).Bold();
 
                             column.Item()
-                                .Text($"Model: {recipe.ModelName}");
+                                .Text($"Model: {recipe.ModelName}").FontSize(14).Bold();
 
                             column.Item()
-                                .Text($"Board Side: {recipe.BoardSide}");
+                                .Text($"Board Side: {recipe.BoardSide}").FontSize(14).Bold();
 
                             column.Item()
                                 .Text(
-                                    $"Import Date: {recipe.ImportedDate}"
-                                );
+                                    $"Import Date: {recipe.ImportedDate}").FontSize(14).Bold();
+                                
 
                             column.Item()
                                 .Table(table =>
@@ -59,23 +59,23 @@ namespace SiplaceApp.Services
                                     table.ColumnsDefinition(columns =>
                                     {
 
-                                        columns.RelativeColumn(2.4f);
-                                        columns.RelativeColumn(1.2f);
-                                        columns.RelativeColumn(0.8f);
-                                        columns.RelativeColumn(1.8f);
-                                        columns.RelativeColumn(0.8f);
-                                        columns.RelativeColumn(2.4f);
                                         columns.RelativeColumn(1.5f);
+                                        columns.RelativeColumn(1f);
+                                        columns.RelativeColumn(1f);
+                                        columns.RelativeColumn(1.5f);
+                                        columns.RelativeColumn(1.5f);
+                                        columns.RelativeColumn(2.5f);
+                                        columns.RelativeColumn(2.5f);
                                     });
                                     table.Header(header =>
                                     {
-                                        header.Cell().Text("Machine Name").Bold();
-                                        header.Cell().Text("Table").Bold();
-                                        header.Cell().Text("Track").Bold();
-                                        header.Cell().Text("Part Number").Bold();
-                                        header.Cell().Text("Quantity").Bold();
-                                        header.Cell().Text("Reference Designators").Bold();
-                                        header.Cell().Text("Feeder Type").Bold();
+                                        header.Cell().Text("Machine Name").Bold().FontSize(14);
+                                        header.Cell().Text("Table").Bold().FontSize(14);
+                                        header.Cell().Text("Track").Bold().FontSize(14);
+                                        header.Cell().Text("Part Number").Bold().FontSize(14);
+                                        header.Cell().Text("Quantity").Bold().FontSize(14);
+                                        header.Cell().Text("Reference Designators").Bold().FontSize(14);
+                                        header.Cell().Text("Feeder Type").Bold().FontSize(14);
                                     });
                                     foreach (var row in reportData)
                                     {
