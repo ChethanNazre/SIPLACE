@@ -19,6 +19,7 @@ CREATE TABLE [dbo].[SetupDetails]
 (
 	[DetailId] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	[RecipeId] INT NOT NULL,
+
 	[MachineName] NVARCHAR(255) NOT NULL,
 	[Table] NVARCHAR(50) NOT NULL,
 	[Track] NVARCHAR(50) NOT NULL,
