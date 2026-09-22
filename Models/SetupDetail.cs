@@ -13,7 +13,7 @@ namespace SiplaceApp.Models
         public string Track { get; set; }
         public string PartNumber { get; set; }
         public int Quantity { get; set; }
-        public string ReferenceDesignator { get; set; }
+        public string ReferenceDesignators { get; set; }
         public string FeederType { get; set; }
         public virtual Recipe Recipe { get; set; }
     }
