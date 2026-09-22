@@ -31,7 +31,7 @@ namespace SiplaceApp.Services
                 var board = root.Descendants("Board").FirstOrDefault();
                 if (board != null)
                 {
-                    recipe.ModelName = board.Attribute("Model")?.Value ?? "";
+                    recipe.ModelName = board.Attribute("Name")?.Value ?? "";
                 }
                 recipe.BoardSide = "Right";
 
