@@ -23,7 +23,7 @@ namespace SiplaceApp.Services
             {
                 container.Page(page =>
                 {
-                    page.Size(PageSizes.A4);
+                    page.Size(PageSizes.A4.Landscape());
                     page.Margin(30);
                     page.PageColor(Colors.White);
                     page.DefaultTextStyle(x => x.FontSize(12));
@@ -59,13 +59,13 @@ namespace SiplaceApp.Services
                                     table.ColumnsDefinition(columns =>
                                     {
 
-                                        columns.RelativeColumn(2);
-                                        columns.RelativeColumn(1);
-                                        columns.RelativeColumn(1);
-                                        columns.RelativeColumn(2);
-                                        columns.RelativeColumn(1);
-                                        columns.RelativeColumn(3);
-                                        columns.RelativeColumn(2);
+                                        columns.RelativeColumn(2.4f);
+                                        columns.RelativeColumn(1.2f);
+                                        columns.RelativeColumn(0.8f);
+                                        columns.RelativeColumn(1.8f);
+                                        columns.RelativeColumn(0.8f);
+                                        columns.RelativeColumn(2.4f);
+                                        columns.RelativeColumn(1.5f);
                                     });
                                     table.Header(header =>
                                     {
