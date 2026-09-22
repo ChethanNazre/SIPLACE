@@ -35,7 +35,20 @@ namespace SiplaceApp
             dgvRecipes.SelectionChanged += dgvRecipes_SelectionChanged;
 
             LoadRecipes();
+        } 
+
+        private string GetReportsFolder()
+        {
+            string projectRoot = Directory.GetParent(
+                AppContext.BaseDirectory)!.Parent!.Parent!.Parent!.FullName;
+
+            string reportsFolder = Path.Combine(projectRoot, "Reports");
+
+            Directory.CreateDirectory(reportsFolder);
+
+            return reportsFolder;
         }
+
 
         private void btnImportXml_Click(
             object sender,
@@ -161,11 +174,13 @@ namespace SiplaceApp
             var reportData =
                 _reportGenerator.GenerateReport(recipe.RecipeId);
 
+            string reportsFolder = GetReportsFolder();
+
             using SaveFileDialog dialog = new SaveFileDialog();
 
             dialog.Title = "Save Excel Report";
-            dialog.Filter =
-                "Excel Files (*.xlsx)|*.xlsx";
+            dialog.InitialDirectory = reportsFolder;
+            dialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
             dialog.FileName =
                 $"{recipe.RecipeName}_Setup_Report.xlsx";
 
@@ -213,11 +228,13 @@ namespace SiplaceApp
             var reportData =
                 _reportGenerator.GenerateReport(recipe.RecipeId);
 
+            string reportsFolder = GetReportsFolder();
+
             using SaveFileDialog dialog = new SaveFileDialog();
 
             dialog.Title = "Save PDF Report";
-            dialog.Filter =
-                "PDF Files (*.pdf)|*.pdf";
+            dialog.InitialDirectory = reportsFolder;
+            dialog.Filter = "PDF Files (*.pdf)|*.pdf";
             dialog.FileName =
                 $"{recipe.RecipeName}_Setup_Report.pdf";
 

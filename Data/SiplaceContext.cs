@@ -9,12 +9,17 @@ namespace SiplaceApp.Data
         public DbSet<SetupDetail> SetupDetails { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=IDEATHOR\SQLEXPRESS;Integrated Security=True;Persist Security Info=False;Pooling=False;
-MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name=""SQL Server Management Studio"";Command Timeout=0");
+            optionsBuilder.UseSqlServer(@"Data Source=IDEATHOR\SQLEXPRESS;Initial Catalog=SIPLACE;Integrated Security=True;TrustServerCertificate=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Recipe>()
+                .ToTable("Recipes", "dbo");
+
+            modelBuilder.Entity<SetupDetail>()
+                .ToTable("SetupDetails", "dbo");
 
             modelBuilder.Entity<SetupDetail>()
                 .HasKey(sd => sd.DetailId);
