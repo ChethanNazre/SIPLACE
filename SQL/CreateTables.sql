@@ -39,8 +39,8 @@ CREATE INDEX IX_RecipeId
 ON [dbo].[SetupDetails]([RecipeId]);
 
 CREATE INDEX IX_PartNumber 
-ON [dbo]..[SetupDetails]([PartNumber]);
+ON [dbo].[SetupDetails]([PartNumber]);
 
 CREATE INDEX IX_MachineName 
-ON [dbo]..[SetupDetails]([MachineName]);
+ON [dbo].[SetupDetails]([MachineName]);
 GO
