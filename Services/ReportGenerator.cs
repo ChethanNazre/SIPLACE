@@ -17,7 +17,8 @@ namespace SiplaceApp.Services
         }
         public List<ReportRow> GenerateReport(int recipeId)
         {
-           var groupedDetails = _context.SetupDetails.Where(d => d.RecipeId == recipeId)
+           var groupedDetails = _context.SetupDetails.Where
+                (d => d.RecipeId == recipeId)
                 .GroupBy(d =>
                 new { d.MachineName, 
                       d.Table, 
@@ -34,7 +35,8 @@ namespace SiplaceApp.Services
                     PartNumber = g.Key.PartNumber, 
 
                     Quantity = g.Sum(d => d.Quantity),
-                    ReferenceDesignators = string.Join(",", g.Select(d => d.ReferenceDesignators)),
+                    ReferenceDesignators = string.Join(",", g.Select
+                    (d => d.ReferenceDesignators)),
 
                     FeederType = g.Key.FeederType
                 })
