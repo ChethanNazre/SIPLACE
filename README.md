@@ -1,17 +1,23 @@
 # SIPLACE Setup Report Generator
 
 ## Overview
-SIPLACE Setup Report Generator is a Windows Forms application for importing SIPLACE XML recipes, storing recipe and setup data in SQL Server, and generating Excel and PDF reports.
+
+SIPLACE Setup Report Generator is a Windows Forms application developed in C# for importing SIPLACE XML recipe files, storing recipe and setup data in SQL Server, and generating setup reports in Excel and PDF formats.
 
 ## Features
-- Import SIPLACE XML recipes
+
+- Import one or more SIPLACE XML recipe files
+- Parse recipe and setup information from XML
 - Store recipe and setup data in SQL Server
 - Support multiple XML imports
-- Display imported recipes
-- Generate Excel reports
-- Generate PDF reports
+- Display imported recipes in the application
+- Select a recipe for report generation
+- Generate Excel setup reports
+- Generate PDF setup reports
+- Group setup records based on the required grouping criteria
 
 ## Technology
+
 - C#
 - .NET 8
 - Windows Forms
@@ -21,32 +27,134 @@ SIPLACE Setup Report Generator is a Windows Forms application for importing SIPL
 - ClosedXML
 - QuestPDF
 
-## Database Setup
-1. Install SQL Server Express and SQL Server Management Studio (SSMS), if they are not already installed.
-2. Open `CreateTables.sql` in SSMS.
-3. Update the script or application connection string with the appropriate SQL Server instance and database settings.
-4. Execute the script to create the required database tables.
-5. Verify that the application connection string points to the configured SQL Server database.
+## Application Workflow
 
-## How to Run
-1. Install the .NET 8 SDK or runtime required by the application.
-2. Configure the SQL Server connection string in the application settings.
-3. Open the solution in Visual Studio 2022 or a compatible IDE.
-4. Restore NuGet packages and build the solution.
-5. Run the application.
-6. Import one or more SIPLACE XML recipe files and use the reporting features to generate Excel or PDF reports.
+```text
+SIPLACE XML Files
+       ↓
+   XML Parsing
+       ↓
+Recipe and Setup Data
+       ↓
+    SQL Server
+       ↓
+ Recipe Selection
+       ↓
+ Report Generation
+       ↓
+ ┌──────────────┐
+ │              │
+Excel          PDF
+Report         Report
+```
+
+## Database Setup
+
+1. Install SQL Server Express and SQL Server Management Studio (SSMS), if required.
+2. Open `CreateTables.sql` in SSMS.
+3. Create the required SIPLACE database and tables using the SQL script.
+4. Configure the application connection string for the SQL Server instance being used.
+5. Execute the SQL script and verify that the required tables have been created.
+6. Run the application and verify that it can connect to the database.
+
+## How to Run from Source
+
+1. Install the .NET 8 SDK.
+2. Ensure SQL Server is available and the required database has been created.
+3. Configure the SQL Server connection string used by the application.
+4. Open the solution in Visual Studio or a compatible IDE.
+5. Restore the NuGet packages.
+6. Build the solution in Release configuration.
+7. Run the application.
+8. Import one or more SIPLACE XML recipe files.
+9. Select an imported recipe.
+10. Generate an Excel or PDF report.
+
+## Running the Published Application
+
+A self-contained Windows x64 build can be created using:
+
+```bash
+dotnet publish -c Release -r win-x64 --self-contained true
+```
+
+The published files are generated under:
+
+```text
+bin\Release\net8.0-windows\win-x64\publish
+```
+
+To run the published application, copy the complete contents of the `publish` folder to the target Windows system and launch the application executable.
+
+The application still requires access to the configured SQL Server database.
 
 ## Report Generation
-The application reads imported recipe and setup data from SQL Server and uses it to generate reports:
 
-- **Excel reports:** Generated with ClosedXML and suitable for further analysis and editing.
-- **PDF reports:** Generated with QuestPDF for formatted, printable output.
+The application generates two report formats from the processed setup data.
+
+### Excel
+
+Excel reports are generated using **ClosedXML** and contain the recipe information and grouped setup details.
+
+### PDF
+
+PDF reports are generated using **QuestPDF** and contain the same recipe and setup information in a formatted, printable layout.
 
 ## Project Structure
-- `CreateTables.sql` — SQL script for creating the application database tables.
-- `*.sln` — Visual Studio solution file.
-- Application project folders — Windows Forms UI, XML import logic, data models, database access, and report-generation functionality.
-- `README.md` — Project setup and usage documentation.
+
+```text
+SIPLACE Setup Report Generator
+│
+├── Models
+│   ├── Recipe.cs
+│   └── SetupDetail.cs
+│
+├── Services
+│   ├── XMLParser.cs
+│   ├── ReportGenerator.cs
+│   ├── ExcelExporter.cs
+│   └── PdfExporter.cs
+│
+├── Data
+│   └── SiplaceContext.cs
+│
+├── SQL
+│   └── CreateTables.sql
+│
+├── MainForm.cs
+├── MainForm.Designer.cs
+├── Program.cs
+└── SiplaceApp.csproj
+```
+
+## SQL Database
+
+The application uses two main tables:
+
+- **Recipes** — stores recipe header information.
+- **SetupDetails** — stores setup detail information associated with a recipe.
+
+The relationship between the tables is maintained using `RecipeId`.
 
 ## Documentation
-See the project documentation and source code for additional details about configuration, XML formats, database entities, and report layouts.
+
+The complete application documentation contains additional information about:
+
+- Application structure
+- System workflow
+- XML parsing
+- Database design
+- Setup data grouping
+- Report generation
+- User interface
+- Testing
+- Deployment
+
+## Project Deliverables
+
+The submission includes:
+
+- Visual Studio solution and source code
+- SQL database script
+- Windows x64 executable build
+- Application documentation
