@@ -22,7 +22,7 @@ namespace SiplaceApp.Data
                 .ToTable("SetupDetails", "dbo");
 
             modelBuilder.Entity<SetupDetail>()
-                .HasKey(sd => sd.DetailId)
+                .HasKey(sd => sd.DetailId);
 
             modelBuilder.Entity<SetupDetail>()
                 .HasOne(sd => sd.Recipe)
