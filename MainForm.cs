@@ -34,7 +34,18 @@ namespace SiplaceApp
 
             dgvRecipes.SelectionChanged += dgvRecipes_SelectionChanged;
 
-            LoadRecipes();
+            try
+            {
+                LoadRecipes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Unable to load recipes from the database.\n\n{ex.Message}",
+                    "Database Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         } 
 
         private string GetReportsFolder()
