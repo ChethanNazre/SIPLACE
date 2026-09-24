@@ -72,16 +72,18 @@ Report         Report
 
 ## Running the Published Application
 
-A self-contained Windows x64 build can be created using:
+A self contained Windows x64 build is provided in the `Release v.01` folder of this repository.
 
-```bash
-dotnet publish -c Release -r win-x64 --self-contained true
-```
+### Download and Run
 
-The published files are generated under:
+1. Open the **`Release v.01`** folder in the repository.
+2. Download the complete published application package.
+3. If the package is provided as a ZIP file, extract it to a folder on your Windows PC.
+4. Open the extracted folder.
+5. Locate and double click:
 
 ```text
-bin\Release\net8.0-windows\win-x64\publish
+SiplaceApp.exe
 ```
 
 To run the published application, copy the complete contents of the `publish` folder to the target Windows system and launch the application executable.
@@ -136,16 +138,3 @@ The application uses two main tables:
 
 The relationship between the tables is maintained using `RecipeId`.
 
-## Documentation
-
-The complete application documentation contains additional information about:
-
-- Application structure
-- System workflow
-- XML parsing
-- Database design
-- Setup data grouping
-- Report generation
-- User interface
-- Testing
-- Deployment
