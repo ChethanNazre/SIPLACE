@@ -16,6 +16,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include="Release v.01\" />
 		<Folder Include="SQL\" />
 	</ItemGroup>
 
